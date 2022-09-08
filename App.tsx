@@ -1,25 +1,24 @@
-import * as React from 'react';
-import BarChart from './Charts/BarChart/BarChart';
-import PieChart from './Charts/PieChart/PieChart';
-import axios from 'axios';
-import './style.css';
+import * as React from "react";
+import BarChart from "./src/Charts/BarChart/BarChart";
+import PieChart from "./src/Charts/PieChart/PieChart";
+import axios from "axios";
+import "./style.css";
 
 export default function App() {
   const [dashboardData, setDashboardData] = React.useState<Record<string, any>>(
     {}
   );
-  const [stage, setStage] = React.useState<string>('');
+  const [stage, setStage] = React.useState<string>("");
 
   const getDashBoardData = async () => {
     try {
-      setStage('loading');
-      const res = await axios.get('https://test.api.mainstack.io');
+      setStage("loading");
+      const res = await axios.get("https://test.api.mainstack.io");
 
-      console.log({ res });
-      setStage('data');
+      setStage("data");
       setDashboardData(res.data);
     } catch (err) {
-      setStage('error');
+      setStage("error");
     }
   };
 
@@ -29,9 +28,9 @@ export default function App() {
 
   const renderBasedOnApiStage = () => {
     switch (stage) {
-      case 'loading':
+      case "loading":
         return <p className="stage">Loading...</p>;
-      case 'data':
+      case "data":
         return (
           <div className="chart-container">
             <div className="pie-chart-container">
@@ -54,7 +53,7 @@ export default function App() {
                       `${data?.source} | count: ${data?.count}`
                   )}
                   pieData={dashboardData?.top_sources?.map(
-                    (data: Record<string, string | number>) => data?.count
+                    (data: Record<string, string | number>) => data?.percent
                   )}
                 />
               </div>
@@ -69,7 +68,7 @@ export default function App() {
             </div>
           </div>
         );
-      case 'error':
+      case "error":
         return (
           <p className="stage error" onClick={getDashBoardData}>
             Error occurred, try again
