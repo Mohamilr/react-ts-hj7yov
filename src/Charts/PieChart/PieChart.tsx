@@ -10,7 +10,6 @@ interface PieChartProps {
 }
 
 const PieChart: React.FC<PieChartProps> = ({ labels, pieData }) => {
-  console.log({ pieData });
   const options = {
     plugins: {
       tooltip: {
@@ -30,6 +29,7 @@ const PieChart: React.FC<PieChartProps> = ({ labels, pieData }) => {
           "rgb(54, 162, 235)",
           "rgb(255, 205, 86)",
           "rgb(275, 285, 86)",
+          "rgb(25, 255, 86)",
         ],
         hoverOffset: 4,
       },

@@ -53,7 +53,7 @@ export default function App() {
                       `${data?.source} | count: ${data?.count}`
                   )}
                   pieData={dashboardData?.top_sources?.map(
-                    (data: Record<string, string | number>) => data?.count
+                    (data: Record<string, string | number>) => data?.percent
                   )}
                 />
               </div>
