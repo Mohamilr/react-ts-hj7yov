@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-header {
+  color: #fff;
+  background-color: #000;
+  padding: 20px;
+}
+
+.stage {
+  margin-top: 30px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.error {
+  color: #ff0000;
+}
+
+.bar-chart {
+  margin: 20px auto;
+  width: 80%;
+}
+
+.pie-chart-container {
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+@media (max-width: 600px) {
+  .bar-chart {
+    width: 100%;
+  }
+
+  .pie-chart-container {
+    flex-direction: column;
+  }
+}
